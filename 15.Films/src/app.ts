@@ -23,10 +23,38 @@ import { Payload } from './services/auth.service.js';
 import { ReviewsController } from './controllers/reviews.controller.js';
 import { ReviewRepo } from './repo/reviews.repository.js';
 import { createReviewsRouter } from './router/reviews.router.js';
+import { PrismaClient } from '@prisma/client';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const prisma = new PrismaClient();
+
+// Definir __dirname manualmente para ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+async function seedDatabase() {
+    const count = await prisma.film.count(); // Verifica si ya hay películas
+    if (count === 0) {
+        console.log('📀 Insertando datos iniciales en la base de datos...');
+        const seedPath = path.join(__dirname, '../data/films.seed.sql');
+        const seedSql = fs.readFileSync(seedPath, 'utf-8');
+        await prisma.$executeRawUnsafe(seedSql);
+        console.log('✅ Datos insertados correctamente.');
+    } else {
+        console.log('⚡ La base de datos ya tiene datos, omitiendo seed.');
+    }
+}
+
+export { seedDatabase };
+
 
 const debug = createDebug('movies:app');
 debug('Loaded module');
 
+//Amplio la interfaz de express añadiendo un user al payload
+//Declaro que en el módulo quiero hacer un cambio (no se importa express)
 declare module 'express' {
     interface Request {
         user?: Payload;
@@ -56,7 +84,7 @@ export const createApp = () => {
 
     // Controllers, Repositories... instances
 
-    const filmsRepo: Repository<Film> = new FilmRepo();
+    const filmsRepo: Repository<Film> = new FilmRepo();  //Habrá que quitar: : Repository<Film> 
     const usersRepo = new UsersRepo();
     const reviewsRepo: ReviewRepo = new ReviewRepo();
 
