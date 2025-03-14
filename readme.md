@@ -1118,6 +1118,56 @@ Review de la API REST Films - Users - Reviews
 
 ### Día 2 (11/03/2025) - M2.03 06
 
+API REST Films - Users - Reviews
+
+- Add toggle to categories in films
+
+<!-- Angular -->
+
+- Introducción a Angular
+
+  - Conceptos. CLI Angular
+  - Creación de un proyecto
+  - Comandos del CLI: generate, serve, build
+  - Estructura de un proyecto Angular
+  - Componentes: clase TS, template HTML+, estilos CSS
+
+### Día 3 (12/03/2025) - M2.03 07
+
+- Angular
+
+  - Añadir ESlint y Prettier
+  - Enrutamiento: componentes-páginas
+  - Lazy loading
+  - Elementos del template:
+    - interpolación
+    - directivas: estructurales y de atributo
+    - controles de flujo
+    - eventos
+
+### Día 4 (13/03/2025) - M2.03 08
+
+- Angular
+
+  - ngModel: two-way data binding
+  - svg como template
+  - Ciclo de vida de un componente
+  - Pipes
+  - Comunicación entre componentes
+    - Input / Output
+  - Lista de películas: patrón present / container
+    - Lista
+    - Item
+    - Add
+
+### Día 5 (14/03/2025) - M2.03 09
+
+<!-- Angular -->
+
+## Semana 18 (Marzo)
+
+### Día 1 (17/03/2025) - M2.03 10
+
 <!--
 
 Aplicación de TypeScript
@@ -1125,38 +1175,19 @@ Aplicación de TypeScript
 - Tipos avanzados
 - Decoradores
 
-
 - Servidores Web: Node + NestJS
 -->
 
-### Día 3 (12/03/2025) - M2.03 07
-
-<!-- Autenticación: JWT en Nest -->
-
-### Día 4 (13/03/2025) - M2.03 08
+### Día 2 (18/03/2025) - M2.03 11
 
 <!--
 - Gestión de imágenes: Multer
 - Almacenamiento de las imágenes: Cloudinary
 - -->
 
-### Día 5 (14/03/2025) - M2.03 09
-
-<!-- Gestión de ficheros e imágenas en Nest -->
-
-## Semana 18 (Marzo)
-
-### Día 1 (17/03/2025) - M2.03 10
-
-<!-- Angular -->
-
-### Día 2 (18/03/2025) - M2.03 11
-
-<!-- Angular -->
-
 ### Día 3 (19/03/2025) - M2.03 12
 
-<!-- Angular -->
+<!-- Gestión de ficheros e imágenas en Nest -->
 
 ### Día 4 (20/03/2025) - M2.02 17
 
