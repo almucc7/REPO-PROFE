@@ -4,7 +4,6 @@ import { resolve } from 'path';
 import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { Film } from '@prisma/client';
 import { debugLogger } from './middleware/debug-logger.js';
 import {
     notFoundController,
@@ -13,7 +12,6 @@ import {
 import { errorManager } from './controllers/errors.controller.js';
 import { createFilmsRouter } from './router/films.router.js';
 import { createUsersRouter } from './router/users.router.js';
-import type { Repository } from './repo/repository.type.js';
 import { UsersRepo } from './repo/users.repository.js';
 import { FilmRepo } from './repo/films.repository.js';
 import { FilmsController } from './controllers/films.controller.js';
@@ -23,38 +21,13 @@ import { Payload } from './services/auth.service.js';
 import { ReviewsController } from './controllers/reviews.controller.js';
 import { ReviewRepo } from './repo/reviews.repository.js';
 import { createReviewsRouter } from './router/reviews.router.js';
-import { PrismaClient } from '@prisma/client';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const prisma = new PrismaClient();
-
-// Definir __dirname manualmente para ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-async function seedDatabase() {
-    const count = await prisma.film.count(); // Verifica si ya hay películas
-    if (count === 0) {
-        console.log('📀 Insertando datos iniciales en la base de datos...');
-        const seedPath = path.join(__dirname, '../data/films.seed.sql');
-        const seedSql = fs.readFileSync(seedPath, 'utf-8');
-        await prisma.$executeRawUnsafe(seedSql);
-        console.log('✅ Datos insertados correctamente.');
-    } else {
-        console.log('⚡ La base de datos ya tiene datos, omitiendo seed.');
-    }
-}
-
-export { seedDatabase };
-
+import { CategoryRepo } from './repo/categories.repository.js';
+import { CategoriesController } from './controllers/categories.controller.js';
+import { createCategoriesRouter } from './router/categories.router.js';
 
 const debug = createDebug('movies:app');
 debug('Loaded module');
 
-//Amplio la interfaz de express añadiendo un user al payload
-//Declaro que en el módulo quiero hacer un cambio (no se importa express)
 declare module 'express' {
     interface Request {
         user?: Payload;
@@ -84,14 +57,16 @@ export const createApp = () => {
 
     // Controllers, Repositories... instances
 
-    const filmsRepo: Repository<Film> = new FilmRepo();  //Habrá que quitar: : Repository<Film> 
+    const filmsRepo = new FilmRepo();
     const usersRepo = new UsersRepo();
     const reviewsRepo: ReviewRepo = new ReviewRepo();
+    const categoriesRepo = new CategoryRepo();
 
     const authInterceptor = new AuthInterceptor(reviewsRepo);
     const filmsController = new FilmsController(filmsRepo);
     const usersController = new UsersController(usersRepo);
     const reviewsController = new ReviewsController(reviewsRepo);
+    const categoriesController = new CategoriesController(categoriesRepo);
 
     const filmsRouter = createFilmsRouter(authInterceptor, filmsController);
     const usersRouter = createUsersRouter(authInterceptor, usersController);
@@ -99,11 +74,16 @@ export const createApp = () => {
         authInterceptor,
         reviewsController,
     );
+    const categoriesRouter = createCategoriesRouter(
+        authInterceptor,
+        categoriesController,
+    );
 
     // Routes registry
     app.use('/api/films', filmsRouter);
     app.use('/api/users', usersRouter);
     app.use('/api/reviews', reviewsRouter);
+    app.use('/api/categories', categoriesRouter);
 
     app.get('*', notFoundController); // 404
     app.use('*', notMethodController); // 405

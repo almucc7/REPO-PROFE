@@ -1080,22 +1080,43 @@ Rutas review:/id -> Authorization: owner
 
 Rutas films -> comprobar y revisar Auth
 
-<!--
-  Rutas users -> revisar auth y añadir las que faltan
+Rutas users -> revisar auth y añadir las que faltan
 
-  - GET /users
-  - GET /users/:id
-  - PATCH /users/role/:id
-  - PATCH /users/:id
-  - DELETE /users/:id
-
--->
+- GET /users
+- GET /users/:id
+- PATCH /users/role/:id
+- PATCH /users/:id
+- DELETE /users/:id
 
 ## Semana 17 (Marzo)
 
 ### Día 1 (10/03/2025) - M2.03 05
 
-_Tardes NestJS_
+Review de la API REST Films - Users - Reviews
+
+- Route users protected for owners:
+
+  - PATCH /users/:id
+  - DELETE /users/:id
+
+- Categories
+
+  - Review of the model
+  - Repositories, Controllers, Routes
+  - Endpoints
+    - GET /categories
+    - POST /categories
+
+- Films permite añadir categorías al crearlo
+
+- Films:permite añadir/eliminar categorías posteriormente
+
+  - POST /films/:id/categories/:id
+  - DELETE /films/:id/categories/:id
+
+  - PATCH /films/:id/categories/:id
+
+### Día 2 (11/03/2025) - M2.03 06
 
 <!--
 
@@ -1108,19 +1129,11 @@ Aplicación de TypeScript
 - Servidores Web: Node + NestJS
 -->
 
-### Día 2 (11/03/2025) - M2.03 06
-
-_Tardes NestJS_
-
 ### Día 3 (12/03/2025) - M2.03 07
-
-_Tardes NestJS_
 
 <!-- Autenticación: JWT en Nest -->
 
 ### Día 4 (13/03/2025) - M2.03 08
-
-_Tardes NestJS_
 
 <!--
 - Gestión de imágenes: Multer
@@ -1129,39 +1142,27 @@ _Tardes NestJS_
 
 ### Día 5 (14/03/2025) - M2.03 09
 
-_Tardes NestJS_
-
 <!-- Gestión de ficheros e imágenas en Nest -->
 
 ## Semana 18 (Marzo)
 
 ### Día 1 (17/03/2025) - M2.03 10
 
-_Tardes NestJS_
-
 <!-- Angular -->
 
 ### Día 2 (18/03/2025) - M2.03 11
-
-_Tardes NestJS_
 
 <!-- Angular -->
 
 ### Día 3 (19/03/2025) - M2.03 12
 
-_Tardes NestJS_
-
 <!-- Angular -->
 
 ### Día 4 (20/03/2025) - M2.02 17
 
-_Tardes NestJS_
-
 Examen Módulo 2 (Primera convocatoria)
 
 ### Día 5 (21/03/2025) - M2.02 18
-
-_Tardes NestJS_
 
 Examen Módulo 2 (Segunda convocatoria)
 
