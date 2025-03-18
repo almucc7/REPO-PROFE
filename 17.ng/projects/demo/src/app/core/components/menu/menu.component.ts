@@ -1,7 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MenuItem } from '../../../app.component';
+import { UserService } from '../../../user/services/user.service';
 
 @Component({
   selector: 'cas-menu',
@@ -21,14 +22,7 @@ import { MenuItem } from '../../../app.component';
             <a [routerLink]="'/profile'">Profile</a>
           </li>
           <li>
-            <a [routerLink]="'/logout'">Logout</a>
-          </li>
-        } @else {
-          <li>
-            <a [routerLink]="'/login'">Login</a>
-          </li>
-          <li>
-            <a [routerLink]="'/register'">Register</a>
+            <a (click)="logout($event)" href="/">Logout</a>
           </li>
         }
       </ul>
@@ -67,5 +61,12 @@ import { MenuItem } from '../../../app.component';
 export class MenuComponent {
   // @Input() items: MenuItem[] = [];
   items = input<MenuItem[]>();
-  isLogin = false;
+  userService = inject(UserService);
+  isLogin = this.userService.token !== null;
+
+  logout(event: Event) {
+    event.preventDefault();
+    localStorage.removeItem('token');
+    location.href = '/';
+  }
 }

@@ -10,11 +10,13 @@ import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs);
 
 import { routes } from './app.routes';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(withFetch()),
     { provide: LOCALE_ID, useValue: 'es' },
   ],
 };

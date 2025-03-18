@@ -1162,7 +1162,14 @@ API REST Films - Users - Reviews
 
 ### Día 5 (14/03/2025) - M2.03 09
 
-<!-- Angular -->
+- Angular
+  - Lista de películas: patrón present / container
+    - Add / Edit - Componentes reutilizables
+  - Servicios
+    - Conceptos: Inyección y providers
+    - Ejemplo: diferentes providers
+    - Servicio repo: mock -> fetch
+    - Servicio con estado: uso de signal
 
 ## Semana 18 (Marzo)
 

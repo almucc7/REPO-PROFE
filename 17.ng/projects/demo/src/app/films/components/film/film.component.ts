@@ -1,36 +1,32 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Film } from '../../types/film';
-import { AddComponent } from '../add/add.component';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'cas-film',
-  imports: [AddComponent],
+  imports: [],
   template: `
     <div>
-      <strong>{{ film()?.title }}</strong> ({{ film()?.releaseYear }})
+      <strong>{{ film().title }}</strong> ({{ film().releaseYear }})
       <button (click)="openEdit()">Editar</button>
       <button (click)="sendDelete()">Eliminar</button>
       @if (isEditing) {
-        <cas-add (addEvent)="updateFilm($event)"></cas-add>
+        <ng-content></ng-content>
       }
     </div>
   `,
   styles: ``,
 })
 export class FilmComponent {
-  film = input<Film>();
-  eventDelete = output<string>();
+  film = input.required<Film>();
   isEditing = false;
+  filmsState = inject(StateService);
 
   sendDelete() {
     const film = this.film() as Film;
-    this.eventDelete.emit(film.id);
+    this.filmsState.deleteFilm(film.id);
   }
   openEdit() {
     this.isEditing = !this.isEditing;
-  }
-
-  updateFilm(film: Film) {
-    console.log(film);
   }
 }
