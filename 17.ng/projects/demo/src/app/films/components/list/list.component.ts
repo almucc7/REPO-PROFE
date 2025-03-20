@@ -2,12 +2,19 @@ import { Component, inject } from '@angular/core';
 import { AddEditComponent } from '../add.edit/add.edit.component';
 import { FilmComponent } from '../film/film.component';
 import { StateService } from '../../services/state.service';
+import { UserService } from '../../../user/services/user.service';
 
 @Component({
   selector: 'cas-list',
   imports: [AddEditComponent, FilmComponent],
   template: `
-    <cas-add-edit [isAdding]="true"></cas-add-edit>
+    @if (
+      userService.currentUser() &&
+      (userService.currentUser()?.role === 'ADMIN' ||
+        userService.currentUser()?.role === 'EDITOR')
+    ) {
+      <cas-add-edit [isAdding]="true"></cas-add-edit>
+    }
     <h3>Listado de películas</h3>
     <ul>
       @for (film of films(); track film.id) {
@@ -30,6 +37,7 @@ import { StateService } from '../../services/state.service';
 })
 export class ListComponent {
   filmsState = inject(StateService);
+  userService = inject(UserService);
   films = this.filmsState.getFilms();
 
   // films: WritableSignal<Film[]>;

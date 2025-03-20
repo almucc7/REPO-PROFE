@@ -1,6 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { Film } from '../types/film';
+import { Film } from '../../core/types/film';
 import { RepoService } from './repo.service';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,17 @@ export class StateService {
 
   getFilms() {
     return this.films;
+  }
+
+  getFilm(id: string) {
+    const film = this.films().find((film) => film.id === id);
+    let film$;
+    if (film) {
+      film$ = of([film]);
+    } else {
+      film$ = this.repo.getFilmById(id);
+    }
+    return film$;
   }
 
   deleteFilm(id: string) {

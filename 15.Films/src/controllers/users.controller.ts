@@ -47,8 +47,11 @@ export class UsersController {
 
     async create(req: Request, res: Response, next: NextFunction) {
         debug('create');
+        console.log('File:', req.file);
         try {
             const newData = req.body;
+            newData.avatar = req.file?.filename;
+            debug(newData);
             UserCreateDTO.parse(newData);
             newData.password = await AuthService.hashPassword(newData.password);
             const user = await this.repoUsers.create(newData);

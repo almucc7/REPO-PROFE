@@ -1,6 +1,6 @@
-import { Film } from '../src/app/core/types/film';
+import { Serie } from '../src/app/series/types/serie';
 
-export const FILMS: Film[] = [
+export const SERIES: Serie[] = [
   {
     id: crypto.randomUUID(),
     title: 'The Shawshank Redemption',

@@ -1,4 +1,11 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  OnDestroy,
+  OnInit,
+  Signal,
+} from '@angular/core';
 import { LogoComponent } from '../logo/logo.component';
 import { UserService } from '../../../user/services/user.service';
 import { TitleCasePipe } from '@angular/common';
@@ -10,7 +17,7 @@ import { TitleCasePipe } from '@angular/common';
     <header>
       <!-- <img src="/logo.svg" alt="logo" /> -->
       <cas-logo></cas-logo>
-      <h1>Welcome {{ title | titlecase }}!</h1>
+      <h1>Welcome {{ title() | titlecase }}!</h1>
       <ng-content></ng-content>
     </header>
   `,
@@ -23,10 +30,12 @@ import { TitleCasePipe } from '@angular/common';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   userService = inject(UserService);
-  title: string;
+  title: Signal<string>;
   constructor() {
-    const user = this.userService.currentUser?.email.split('@')[0];
-    this.title = user || 'demo';
+    this.title = computed(
+      () => this.userService.currentUser()?.email.split('@')[0] || 'demo',
+    );
+
     console.log('Constructor HeaderComponent');
     console.log(this.title);
   }

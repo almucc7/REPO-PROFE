@@ -1,19 +1,18 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Film } from '../../../core/types/film';
-import { StateService } from '../../services/state.service';
+import { Serie } from '../../types/serie';
 
 @Component({
   selector: 'cas-add-edit',
   imports: [FormsModule],
   template: `
     <!-- @if (isAdding) {
-      <h3>Add film</h3>
+      <h3>Add serie</h3>
     } @else {
-      <h3>Edit film</h3>
+      <h3>Edit serie</h3>
     } -->
 
-    <h3>{{ isAdding() ? 'Add' : 'Edit' }} film</h3>
+    <h3>{{ isAdding() ? 'Add' : 'Edit' }} serie</h3>
 
     <form (ngSubmit)="sendEvent()">
       <label for="title">Title</label>
@@ -21,7 +20,7 @@ import { StateService } from '../../services/state.service';
         type="text"
         id="title"
         name="title"
-        [(ngModel)]="filmData.title"
+        [(ngModel)]="serieData.title"
         required
       />
       <label for="year">Year</label>
@@ -29,7 +28,7 @@ import { StateService } from '../../services/state.service';
         type="number"
         id="year"
         name="year"
-        [(ngModel)]="filmData.releaseYear"
+        [(ngModel)]="serieData.releaseYear"
         required
       />
       <button type="submit">{{ isAdding() ? 'Add' : 'Edit' }}</button>
@@ -38,27 +37,29 @@ import { StateService } from '../../services/state.service';
   styles: ``,
 })
 export class AddEditComponent implements OnInit {
-  film = input<Film>({
+  serie = input<Serie>({
     id: '',
     title: '',
     releaseYear: 0,
   });
 
-  filmData!: Film;
+  serieData!: Serie;
+
   isAdding = input.required<boolean>();
-  filmsState = inject(StateService);
+
+  addEvent = output<Serie>();
+  editEvent = output<Serie>();
 
   ngOnInit(): void {
-    this.filmData = structuredClone(this.film());
+    this.serieData = structuredClone(this.serie());
   }
 
   sendEvent() {
     if (this.isAdding()) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { id, ...rest } = this.filmData;
-      this.filmsState.addFilm(rest);
+      this.serie().id = crypto.randomUUID();
+      this.addEvent.emit({ ...this.serieData });
     } else {
-      this.filmsState.updateFilm({ ...this.filmData });
+      this.editEvent.emit({ ...this.serieData });
     }
   }
 }

@@ -1175,26 +1175,36 @@ API REST Films - Users - Reviews
 
 ### Día 1 (17/03/2025) - M2.03 10
 
-<!--
+- Angular
 
-Aplicación de TypeScript
+  - Http: HttpClient en el servicio repo
+    - RxJS y Observables
+  - Operaciones CRUD en rutas no protegidas
 
-- Tipos avanzados
-- Decoradores
-
-- Servidores Web: Node + NestJS
--->
+  - Login: servicio userService: token y JWT-decoded
+  - Token en el cliente: servicio userService y local storage
+  - Operaciones CRUD en rutas protegidas: cabeceras con token
+  - Interfaz: login / logout y register
 
 ### Día 2 (18/03/2025) - M2.03 11
+
+- Angular
+
+  - Formularios: Reactive Forms
+  - Validaciones
+  <!--  - Formularios: Template Driven -->
+
+  - Signals en userService
+  - GUI dependiendo de la sesión de usuario iniciada
+
+### Día 3 (19/03/2025) - M2.03 12
+
+- Angular: página de detalle
 
 <!--
 - Gestión de imágenes: Multer
 - Almacenamiento de las imágenes: Cloudinary
 - -->
-
-### Día 3 (19/03/2025) - M2.03 12
-
-<!-- Gestión de ficheros e imágenas en Nest -->
 
 ### Día 4 (20/03/2025) - M2.02 17
 
