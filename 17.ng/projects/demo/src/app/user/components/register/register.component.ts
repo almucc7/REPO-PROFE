@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -108,7 +108,8 @@ type UserForm = {
 export class RegisterComponent {
   userServices = inject(UserService);
   fb = inject(FormBuilder);
-  // formGroup = this.fb.group<UserForm>({
+
+  // formGroup = this.fb.group({
   //   email: ['', [Validators.required, Validators.email]],
   //   password: ['', [Validators.required, Validators.minLength(5)]],
   //   firstName: ['', Validators.required],
@@ -128,9 +129,11 @@ export class RegisterComponent {
     lastName: this.fb.nonNullable.control('', Validators.required),
     avatar: this.fb.control(null),
   });
+
   checkedPasswd = this.checkPasswd();
   user: User | null = null;
-  @ViewChild('avatar') fileAvatar!: ElementRef;
+  // @ViewChild('avatar') fileAvatar!: ElementRef;
+  fileAvatar = viewChild<ElementRef>('avatar');
 
   constructor() {
     this.formGroup.get('password')?.valueChanges.subscribe(() => {
@@ -142,14 +145,15 @@ export class RegisterComponent {
     const avatar = this.formGroup.get('avatar');
     console.log('Avatar', avatar);
     if (avatar) {
-      const fileInput: HTMLInputElement = this.fileAvatar.nativeElement;
-      const file: File | undefined = fileInput.files?.[0];
+      const fileInputElement: HTMLInputElement =
+        this.fileAvatar()!.nativeElement;
+      const file: File | undefined = fileInputElement.files?.[0];
 
       if (!file) {
         return;
       }
 
-      console.dir(fileInput);
+      console.dir(fileInputElement);
       console.log('File', file);
       this.formGroup.patchValue({ avatar: file });
     }

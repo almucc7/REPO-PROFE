@@ -6,7 +6,16 @@ import { AuthService } from '../services/auth.service.js';
 import { HttpError } from '../types/http-error.js';
 import { UserCreateDTO, UserLoginDTO } from '../dto/users.dto.js';
 import { ZodError } from 'zod';
+import { v2 as cloudinary } from 'cloudinary';
 const debug = createDebug('movies:controller:users');
+
+cloudinary.config({
+    cloud_name: 'my_cloud_name',
+    api_key: 'my_key',
+    api_secret: 'my_secret',
+    // secure_distribution: 'mydomain.com',
+    // upload_prefix: 'myprefix.com'
+});
 
 export class UsersController {
     constructor(private repoUsers: UsersRepo) {
@@ -50,7 +59,13 @@ export class UsersController {
         console.log('File:', req.file);
         try {
             const newData = req.body;
-            newData.avatar = req.file?.filename;
+            // const { buffer} = req.file!;
+            // const r = await cloudinary.uploader.upload_stream(buffer)
+            const { filename } = req.file!;
+            const r = await cloudinary.uploader.upload(
+                `./public/uploads/${filename}`,
+            );
+            newData.avatar = r.public_id;
             debug(newData);
             UserCreateDTO.parse(newData);
             newData.password = await AuthService.hashPassword(newData.password);

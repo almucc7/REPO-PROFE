@@ -1212,7 +1212,12 @@ Examen Módulo 2 (Primera convocatoria)
 
 ### Día 5 (21/03/2025) - M2.02 18
 
-Examen Módulo 2 (Segunda convocatoria)
+<!-- Examen Módulo 2 (Segunda convocatoria) -->
+
+Code review del examen
+
+Upload de ficheros desde Angular
+Cloudinary
 
 <!--
 [Opción -> último día del módulo]

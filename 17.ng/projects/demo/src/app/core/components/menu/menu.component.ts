@@ -19,7 +19,7 @@ import { UserService } from '../../../user/services/user.service';
         }
         @if (isLogin()) {
           <li>
-            <a [routerLink]="'/profile'">Profile</a>
+            <a [routerLink]="'/user'">Profile</a>
           </li>
           <li>
             <a (click)="logout($event)" href="/">Logout</a>

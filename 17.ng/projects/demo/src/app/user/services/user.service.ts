@@ -70,6 +70,18 @@ export class UserService {
     }
   }
 
+  getUserById(id: string) {
+    // const x = this._currentUser()?.id;
+    const url = this.url + '/' + id;
+    return this.httpClient
+      .get<ApiResponse>(url, {
+        headers: {
+          Authorization: `Bearer ${this.token()}`,
+        },
+      })
+      .pipe(map((r) => r.results[0]));
+  }
+
   register(data: DTOUser) {
     const formData = new FormData();
     formData.append('email', data.email);

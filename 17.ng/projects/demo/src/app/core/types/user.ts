@@ -8,6 +8,7 @@ export type User = {
   firstName: string;
   lastName: string;
   role?: Role;
+  avatar: string;
 };
 
 export type DTOUser = {
@@ -16,5 +17,5 @@ export type DTOUser = {
   password: string;
   firstName: string;
   lastName: string;
-  avatar?: Blob;
+  avatar?: File | null;
 };

@@ -28,6 +28,11 @@ export const routes: Routes = [
     data: { label: 'Series' },
   },
   {
+    path: 'user',
+    loadComponent: () => import('./user/profile.component'),
+    title: 'User profile | Angular Demo',
+  },
+  {
     path: 'about',
     loadComponent: () => import('./about/about.component'),
     title: 'About | Angular Demo',

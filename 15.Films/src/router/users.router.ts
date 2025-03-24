@@ -25,7 +25,7 @@ export const createUsersRouter = (
     usersRouter.get(
         '/:id',
         authInterceptor.authenticate,
-        authInterceptor.hasRole(Role.ADMIN),
+        authInterceptor.isUser,
         usersController.getById.bind(usersController),
     );
     usersRouter.post(
