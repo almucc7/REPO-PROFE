@@ -5,7 +5,7 @@ export default defineConfig({
         include: ['**/*.test.ts'], //Incluye todos los test que encuentres
         globals: true,
         coverage: {
-            include: ['demo1/**/*.ts'], //En el coverage incluye lo que encuentres en demo1
+            include: ['demo1/**/*.ts'],
         },
     },
 });
