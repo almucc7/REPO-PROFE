@@ -24,6 +24,7 @@ import { createReviewsRouter } from './router/reviews.router.js';
 import { CategoryRepo } from './repo/categories.repository.js';
 import { CategoriesController } from './controllers/categories.controller.js';
 import { createCategoriesRouter } from './router/categories.router.js';
+import { FileInterceptor } from './middleware/file.interceptor.js';
 
 const debug = createDebug('movies:app');
 debug('Loaded module');
@@ -63,13 +64,18 @@ export const createApp = () => {
     const categoriesRepo = new CategoryRepo();
 
     const authInterceptor = new AuthInterceptor(reviewsRepo);
+    const fileInterceptor = new FileInterceptor();
     const filmsController = new FilmsController(filmsRepo);
     const usersController = new UsersController(usersRepo);
     const reviewsController = new ReviewsController(reviewsRepo);
     const categoriesController = new CategoriesController(categoriesRepo);
 
     const filmsRouter = createFilmsRouter(authInterceptor, filmsController);
-    const usersRouter = createUsersRouter(authInterceptor, usersController);
+    const usersRouter = createUsersRouter(
+        authInterceptor,
+        fileInterceptor,
+        usersController,
+    );
     const reviewsRouter = createReviewsRouter(
         authInterceptor,
         reviewsController,

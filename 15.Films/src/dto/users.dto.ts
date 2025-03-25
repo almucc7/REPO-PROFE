@@ -12,6 +12,7 @@ export const UserCreateDTO = z
         password: z.string().min(5).nonempty(),
         firstName: z.string().min(3).nonempty(),
         lastName: z.string().min(3).nonempty(),
+        avatar: z.string().optional(),
     })
     .strict() satisfies z.Schema<Prisma.UserCreateInput>;
 

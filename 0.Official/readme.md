@@ -64,6 +64,8 @@ Código: MF0492_3
 
 Denominación: DESARROLLO DE APLICACIONES WEB EN EL ENTORNO
 SERVIDOR
+(Desarrollo de aplicaciones web en el entorno
+servidor)
 Código: UF1844
 Duración: 90 horas (18 días)
 
@@ -78,6 +80,7 @@ Duración: 90 horas (18 días)
 
 Denominación: ACCESO A DATOS EN APLICACIONES WEB DEL ENTORNO
 SERVIDOR
+(Acceso a datos en aplicaciones web del entorno servidor)
 Código: UF1845
 Duración: 90 horas (18 días)
 
@@ -89,6 +92,7 @@ Duración: 90 horas (18 días)
 ### Aplicaciones Web Distribuidas
 
 Denominación: DESARROLLO DE APLICACIONES WEB DISTRIBUIDAS
+(Desarrollo de aplicaciones web distribuidas)
 Código: UF1846
 cve: BOE-A-2011-19503
 Duración: 60 horas (12 días)

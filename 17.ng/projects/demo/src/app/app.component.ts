@@ -38,7 +38,7 @@ export class AppComponent {
   constructor() {
     this.userService.getToken();
     this.routes = routes
-      .filter((route) => route.path !== '**' && route.path !== '')
+      .filter((route) => route.data)
       .map((route) => ({
         path: route.path!,
         label: route.data!['label'] as string,

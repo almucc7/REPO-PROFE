@@ -24,6 +24,7 @@ import { TimeService } from '../core/services/time.service';
         <button (click)="showRegister = !showRegister">aquí</button>
       </p>
     }
+
     {{ timeService.getTime() }}
   `,
   styles: ``,

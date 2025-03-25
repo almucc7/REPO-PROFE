@@ -2,7 +2,8 @@ import { Router } from 'express';
 import createDebug from 'debug';
 import { UsersController } from '../controllers/users.controller';
 import { Role } from '@prisma/client';
-import { AuthInterceptor } from '../middleware/auth.interceptor';
+import type { AuthInterceptor } from '../middleware/auth.interceptor';
+import type { FileInterceptor } from '../middleware/file.interceptor';
 const debug = createDebug('movies:router:users');
 
 // Los métodos del controller no son arrow functions
@@ -10,6 +11,7 @@ const debug = createDebug('movies:router:users');
 
 export const createUsersRouter = (
     authInterceptor: AuthInterceptor,
+    fileInterceptor: FileInterceptor,
     usersController: UsersController,
 ) => {
     debug('Ejecutando createFilmsRouter');
@@ -23,10 +25,14 @@ export const createUsersRouter = (
     usersRouter.get(
         '/:id',
         authInterceptor.authenticate,
-        authInterceptor.hasRole(Role.ADMIN),
+        authInterceptor.isUser,
         usersController.getById.bind(usersController),
     );
-    usersRouter.post('/register', usersController.create.bind(usersController));
+    usersRouter.post(
+        '/register',
+        fileInterceptor.multer.bind(fileInterceptor),
+        usersController.create.bind(usersController),
+    );
     usersRouter.post('/login', usersController.login.bind(usersController));
     usersRouter.patch(
         '/role/:id',
