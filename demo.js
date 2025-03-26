@@ -12,15 +12,16 @@ const PrismaClient = function () {
     return mockPrisma;
 };
 
-console.log(new PrismaClient());
+console.log('Opción 1', new PrismaClient());
 
 const Prisma = function () {
     this.film = mockPrisma.film;
 };
 
-console.log(new Prisma());
+console.log('Opción 2', new Prisma());
 
 const Sample = function () {
+    this.user = `Pepe`;
     return {
         name: 'sample',
     };

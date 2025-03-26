@@ -1,6 +1,7 @@
 import { FilmRepo } from './films.repository';
 import { vi } from 'vitest';
 import { FilmCreateDTO } from '../dto/films.dto';
+import { PrismaClient } from '@prisma/client';
 
 const mockPrisma = {
     film: {
@@ -14,13 +15,13 @@ const mockPrisma = {
         }),
         delete: vi.fn().mockResolvedValue({}),
     },
-};
+} as unknown as PrismaClient;
 
-vi.mock('@prisma/client', () => ({
-    PrismaClient: function () {
-        return mockPrisma;
-    },
-}));
+// vi.mock('@prisma/client', () => ({
+//     PrismaClient: function () {
+//         return mockPrisma;
+//     },
+// }));
 
 // vi.mock('@prisma/client', () => ({
 //     PrismaClient: function (this: typeof mockPrisma) {
@@ -32,7 +33,7 @@ describe('Given class FilmRepo', () => {
     let filmRepo: FilmRepo;
     beforeAll(() => {
         // Arrange
-        filmRepo = new FilmRepo();
+        filmRepo = new FilmRepo(mockPrisma);
     });
 
     describe('When we instantiate it', () => {
