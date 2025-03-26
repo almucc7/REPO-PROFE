@@ -1,16 +1,11 @@
 // Módulo
 
-function foo() {
-    console.log('Soy foo');
-}
-
 // Crea una función que cuente la cantidad de palabras en una frase.
 
-export function countWords(sentence = '') {
-    if (typeof sentence !== 'string') return;
+export function countWords(sentence: string) {
     if (sentence === '') return 0;
     const words = sentence.split(' ');
-    return words.length;
+    return words.filter((word) => word !== '').length;
 }
 
 // Crea una función que genere una
@@ -24,7 +19,7 @@ export function countWords(sentence = '') {
 //     return Math.trunc(Math.random() * 10);
 // }
 
-function randomIntegerInInterval(min, max) {
+function randomIntegerInInterval(min: number, max: number) {
     return Math.trunc(Math.random() * (max + 1 - min) + min);
 }
 
@@ -51,7 +46,7 @@ function shuffleString(word = '') {
 // S de SOLID
 // Single Responsibility
 
-export function generatePassword(length) {
+export function generatePassword(length: number) {
     // Sin ternario
     // let rounds = 2;
     // if (length > 6) {
@@ -59,7 +54,7 @@ export function generatePassword(length) {
     // }
 
     // Usando el operador ternario
-    let rounds = length <= 6 ? 2 : Math.ceil(length / 3);
+    const rounds = length <= 6 ? 2 : Math.ceil(length / 3);
     let result = '';
 
     for (let i = 0; i < rounds; i++) {

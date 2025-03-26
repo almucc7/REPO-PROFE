@@ -1232,13 +1232,21 @@ Servidores Web: Node + Express
 - Uso de la autenticación desde el cliente
 -->
 
-<!-- ¿Sockets - Chat? -->
-
 ## Semana 19 (Marzo)
 
 ### Día 1 (24/03/2025) - M3.00 01
 
-<!-- Testing -->
+Introducción al módulo
+
+- Internet. Web
+- Ciclo de vida del software
+- Agile: Scrum
+
+Testing
+
+- Introducción. Tipos
+- Vitest. Instalación
+- TDD. Ejemplo
 
 ### Día 2 (25/03/2025) - M3.00 02
 
