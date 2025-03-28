@@ -1,6 +1,6 @@
 import { hash, compare } from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { vi } from 'vitest';
+import { Mock, vi } from 'vitest';
 import { AuthService } from './auth.service';
 
 vi.mock('bcryptjs', () => ({
@@ -11,10 +11,12 @@ vi.mock('bcryptjs', () => ({
 vi.mock('jsonwebtoken');
 
 describe('Given the class AuthService', () => {
-    // const jwt = {
-    //     sign: vi.fn(),
-    //     verify: vi.fn(),
-    // };
+    const token = 'Este es el token';
+    const payload = {
+        id: 'id',
+        email: 'email',
+        role: 'role',
+    };
 
     describe('When hashPassword is called', () => {
         test('Then it should call hash from bcrypt', async () => {
@@ -39,30 +41,44 @@ describe('Given the class AuthService', () => {
             expect(result).toBe(true);
         });
     });
-    describe('When generateToken is called', () => {
+    describe('When generateToken is called', async () => {
         test('Then it should call jwt.sign for generate a token', async () => {
             // Arrange
-            const payload = {
-                id: 'id',
-                email: 'email',
-                role: 'role',
-            };
+            // jwt.sign = vi.fn().mockReturnValue(token);
+            (jwt.sign as Mock).mockReturnValue(token);
             // Act
-            AuthService.generateToken(payload);
+            const result = await AuthService.generateToken(payload);
             // Assert
             expect(jwt.sign).toHaveBeenCalledWith(
                 payload,
                 process.env.JWT_SECRET as string,
             );
+            expect(result).toBe(token);
         });
     });
     describe('When verifyToken is called', () => {
-        test('Then it should verify a token', async () => {
+        test('Then it should verify a valid token', async () => {
             // Arrange
-            const token = 'Este es el token';
+            (jwt.verify as Mock).mockReturnValue(payload);
             // Act
-            AuthService.verifyToken(token);
+            const result = await AuthService.verifyToken(token);
             // Assert
+            expect(jwt.verify).toHaveBeenCalledWith(
+                token,
+                process.env.JWT_SECRET as string,
+            );
+            expect(result).toEqual(payload);
+        });
+        test('Then it should verify a invalid token', async () => {
+            // Arrange
+            (jwt.verify as Mock).mockReturnValue('NO Soy un token');
+            // Act y Assert
+            // Funciones sincrónicas que lanzan un error
+            // expect(() => AuthService.verifyTokenSync(token)).toThrowError();
+            // Funciones asíncronas que 'reject' un error
+            await expect(AuthService.verifyToken(token)).rejects.toThrowError(
+                'Token no válido',
+            );
             expect(jwt.verify).toHaveBeenCalledWith(
                 token,
                 process.env.JWT_SECRET as string,

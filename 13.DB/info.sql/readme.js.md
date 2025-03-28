@@ -33,6 +33,7 @@ title: SQL y ECMAScript (JavaScript)
     - [Crear un modelo: Ejemplo de un blog](#crear-un-modelo-ejemplo-de-un-blog)
   - [Migraciones](#migraciones)
   - [Uso de Prisma Client](#uso-de-prisma-client)
+  - [Prisma Seed](#prisma-seed)
 
 ## MySQL y JavaScript / TypeScript
 
@@ -971,4 +972,21 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+```
+
+### Prisma Seed
+
+Prisma Seed es una herramienta que nos permite insertar datos de prueba en la base de datos.
+
+Para usar Prisma Seed, primero debemos crear un archivo seed.ts en la raíz de nuestro proyecto.
+
+```ts
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+```
+
+A continuación, podemos usar el cliente de Prisma para insertar datos en la base de datos.
+
+```ts
+
 ```
