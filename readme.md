@@ -1275,7 +1275,12 @@ Testing
 
 ### Día 1 (31/03/2025) - M3.00 06
 
-Test unitario del frontend
+- Test unitario del frontend
+
+  - Creación de un proyecto TS a partir de JS
+  - Tests de un servicio
+  - jsdom y testing-library
+  - Tests de un componente
 
 ### Día 2 (01/03/2025) - M3.00 07
 

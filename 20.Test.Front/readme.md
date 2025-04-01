@@ -21,7 +21,7 @@
 Instalamos jsdom y testing-library para poder hacer pruebas de componentes en el navegador.
 
 ```shell
-npm i -D jsdom @testing-library/dom @testing-library/jest-dom '@testing-library/user-event
+npm i -D jsdom @testing-library/dom @testing-library/jest-dom @testing-library/user-event
 ```
 
 Configuramos jsdom en el archivo de configuración de vitest (vitest.config.ts)
@@ -35,7 +35,7 @@ export default defineConfig({
 });
 ```
 
-Podemos usar el entorno de jsdom para hacer pruebas de componentes. Test-library proporciona:
+Podemos usar el entorno de jsdom para hacer pruebas de componentes. Testing-library proporciona:
 
 - `screen`: para acceder a los elementos del DOM
 - `fireEvent`: para simular eventos del DOM
@@ -43,9 +43,9 @@ Podemos usar el entorno de jsdom para hacer pruebas de componentes. Test-library
 - `userEvent`: para simular eventos de usuario (click, teclado, etc.)
 - `jest-dom`: para hacer aserciones sobre el DOM (toBeInTheDocument, toHaveTextContent, etc.)
 
-En screen podemos usar:
+En **screen** podemos usar:
 
-- `getByText`: para buscar un elemento por su texto
+- `getByText` / `queryByText` / `findByTex`t: para buscar un elemento por su texto
 - `getByRole`: para buscar un elemento por su rol (button, heading, etc.) ...
 
 ### Incorporación de vite
