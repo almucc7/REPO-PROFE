@@ -4,14 +4,13 @@ import { HttpError } from '../types/http-error.js';
 import createDebug from 'debug';
 import { Role } from '@prisma/client';
 import { ReviewRepo } from '../repo/reviews.repository.js';
-//  { Role } from '@prisma/client';
 
 const debug = createDebug('movies:interceptor:auth');
 
 export class AuthInterceptor {
     constructor(private repoReviews: ReviewRepo) {
-        console.log('createDebug', createDebug);
-        console.log('mi variable debug', debug);
+        //console.log('createDebug', createDebug);
+        //console.log('mi variable debug', debug);
         debug('Instanciando');
     }
 
@@ -121,7 +120,6 @@ export class AuthInterceptor {
         const { id: userId } = req.user;
         try {
             const review = await this.repoReviews.readById(reviewId);
-
             if (review.userId === userId || req.user.role === Role.ADMIN) {
                 next();
             } else {

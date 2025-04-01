@@ -1251,22 +1251,31 @@ Testing
 
 - Test con Vitest.
   - Ejemplos en códigos previos
-- Testing del backend
+- Testing unitario del backend
   - Repositories
 
 ### Día 3 (26/03/2025) - M3.00 03
 
-- Testing del backend
+- Testing unitario del backend
   - Controllers
   - Servicios
 
 ### Día 4 (27/03/2025) - M3.00 04
 
+- Testing unitario del backend
+  - Servicios
+  - Interceptores (Middleware)
+
 ### Día 5 (28/03/2025) - M3.00 05
+
+- Testing e2e del backend: Supertest
+  - Rutas
 
 ## Semana 20 (Marzo)
 
 ### Día 1 (31/03/2025) - M3.00 06
+
+Test unitario del frontend
 
 ### Día 2 (01/03/2025) - M3.00 07
 

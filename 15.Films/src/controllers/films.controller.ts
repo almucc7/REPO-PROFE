@@ -48,6 +48,7 @@ export class FilmsController {
 
             const newData: FilmCreateDTO = req.body;
             const film = await this.repoFilms.create(newData);
+            res.status(201);
             res.json(this.makeResponse([film]));
         } catch (error) {
             next(error);
