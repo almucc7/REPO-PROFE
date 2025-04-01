@@ -1,5 +1,6 @@
 import type { Character } from '../types/character.js';
 import { render } from './base.js';
+import { createCommunications } from './communications.js';
 
 const setState = (isAlive: boolean) => {
     return isAlive
@@ -42,6 +43,25 @@ export function createCharacter(
     position: InsertPosition = 'beforeend',
     character: Character,
 ) {
+    const dead = () => {
+        const state = element?.querySelector(
+            '[data-testId="state"]',
+        ) as HTMLElement;
+        state.classList.toggle('fa-thumbs-up');
+        state.classList.toggle('fa-thumbs-down');
+        character.isAlive = !character.isAlive;
+    };
+
+    const talk = () => {
+        const element = createCommunications(character);
+        setTimeout(() => {
+            element?.classList.remove('on');
+            setTimeout(() => {
+                element?.remove();
+            }, 500);
+        }, 2000);
+    };
+
     const template = /*html*/ `
       <li class="character" aria-label="${character.id}">
         <div class="card character__card">
@@ -71,5 +91,10 @@ export function createCharacter(
       </li>
     `;
 
-    render(selector, position, template);
+    const element = render(selector, position, template);
+    const buttons = element!.querySelectorAll('button');
+    // Habla
+    buttons[0].addEventListener('click', talk);
+    // Muere
+    buttons[1].addEventListener('click', dead);
 }
