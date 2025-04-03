@@ -1,18 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddComponent } from './add.edit.component';
+import { AddEditComponent } from './add.edit.component';
+import { StateService } from '../../services/state.service';
+import { RepoService } from '../../services/repo.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentRef } from '@angular/core';
 
-describe('AddComponent', () => {
-  let component: AddComponent;
-  let fixture: ComponentFixture<AddComponent>;
+describe('AddEditComponent', () => {
+  let component: AddEditComponent;
+  let componentRef: ComponentRef<AddEditComponent>;
+  let fixture: ComponentFixture<AddEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddComponent],
+      imports: [AddEditComponent, HttpClientModule],
+      providers: [StateService, RepoService],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AddComponent);
+    fixture = TestBed.createComponent(AddEditComponent);
     component = fixture.componentInstance;
+    componentRef = fixture.componentRef;
+    componentRef.setInput('isAdding', true);
     fixture.detectChanges();
   });
 

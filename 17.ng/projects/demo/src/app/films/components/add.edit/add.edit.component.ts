@@ -45,7 +45,9 @@ export class AddEditComponent implements OnInit {
   });
 
   filmData!: Film;
+  // @Input() isAdding;
   isAdding = input.required<boolean>();
+
   filmsState = inject(StateService);
 
   ngOnInit(): void {
