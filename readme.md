@@ -1284,17 +1284,43 @@ Testing
 
 ### Día 2 (01/03/2025) - M3.00 07
 
+- Test unitario del frontend
+
+  - Tests de un componente (continuación)
+    - Aspectos estáticos
+    - Caja negra (comportamiento) v. caja blanca (implementación)
+    - Interacciones: Evento click
+
 ### Día 3 (02/04/2025) - M3.00 08
+
+- Documentación de código: JSDoc
+- Test unitario del frontend
+
+  - Revisión de los tests de un componente (conceptos)
+  - Mocking de timers
+  - Nuevos componentes header / addForm
+  - Test de formularios
 
 ### Día 4 (03/04/2025) - M3.00 09
 
+<!-- - Test unitarios en Angular -->
+
 ### Día 5 (04/04/2025) - M3.00 10
+
+<!-- - Test unitarios en Angular -->
 
 ## Semana 21 (Abril)
 
 ### Día 1 (07/04/2025) - M3.00 11
 
+<!-- Test e2e del frontend
+
+- Cypress. Instalación y configuración -->
+
 ### Día 2 (08/04/2025) - M3.00 12
+
+<!-- Git y GitHub -->
+<!-- Husky -->
 
 ### Día 3 (09/04/2025) - M3.00 13
 
@@ -1302,7 +1328,11 @@ Testing
 
 ### Día 5 (11/04/2025) - M3.00 15
 
+<!-- CD/CD: Github Actions -->
+
 ## Semana Santa 12/04/2025 - 20/04/2025
+
+<!-- Vacaciones de Semana Santa -->
 
 ## Semana 22 (Abril)
 
