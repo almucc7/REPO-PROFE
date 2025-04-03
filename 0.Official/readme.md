@@ -62,8 +62,7 @@ Código: MF0492_3
 
 ### Aplicaciones en el servidor
 
-Denominación: DESARROLLO DE APLICACIONES WEB EN EL ENTORNO
-SERVIDOR
+Denominación: DESARROLLO DE APLICACIONES WEB EN EL ENTORNO SERVIDOR
 (Desarrollo de aplicaciones web en el entorno
 servidor)
 Código: UF1844
@@ -78,8 +77,7 @@ Duración: 90 horas (18 días)
 
 ### Bases de datos
 
-Denominación: ACCESO A DATOS EN APLICACIONES WEB DEL ENTORNO
-SERVIDOR
+Denominación: ACCESO A DATOS EN APLICACIONES WEB DEL ENTORNO SERVIDOR
 (Acceso a datos en aplicaciones web del entorno servidor)
 Código: UF1845
 Duración: 90 horas (18 días)
