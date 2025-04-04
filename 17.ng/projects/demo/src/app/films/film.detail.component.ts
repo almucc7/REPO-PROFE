@@ -2,7 +2,7 @@ import { Component, inject, input, OnInit } from '@angular/core';
 //import { ActivatedRoute } from '@angular/router';
 import { StateService } from './services/state.service';
 import { Film } from '../core/types/film';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -27,7 +27,7 @@ export default class FilmDetailComponent implements OnInit {
   // @Input() id!: string;
   id = input('id');
   stateService = inject(StateService);
-  film$!: Observable<Film[]>;
+  film$: Observable<Film[]> = of([]);
 
   //constructor() {
   // console.log('Constructor FilmDetailComponent');
