@@ -1218,19 +1218,6 @@ Code review del examen
 Upload de ficheros desde Angular
 Almacenamiento de las imágenes: Cloudinary
 
-<!--
-[Opción -> último día del módulo]
-
-Bases de datos NO relacionales (Mongo)
-
-Servidores Web: Node + Express
-- ODM (Mongoose)
-- Patrón Repositorio con ODM
--->
-<!-- - Autenticación: JWT
-- Uso de la autenticación desde el cliente
--->
-
 ## Semana 19 (Marzo)
 
 ### Día 1 (24/03/2025) - M3.00 01
@@ -1251,18 +1238,18 @@ Testing
 
 - Test con Vitest.
   - Ejemplos en códigos previos
-- Testing unitario del backend
+- Testing unitario del backend (1)
   - Repositories
 
 ### Día 3 (26/03/2025) - M3.00 03
 
-- Testing unitario del backend
+- Testing unitario del backend (2)
   - Controllers
   - Servicios
 
 ### Día 4 (27/03/2025) - M3.00 04
 
-- Testing unitario del backend
+- Testing unitario del backend (3)
   - Servicios
   - Interceptores (Middleware)
 
@@ -1275,7 +1262,7 @@ Testing
 
 ### Día 1 (31/03/2025) - M3.00 06
 
-- Test unitario del frontend
+- Test unitario del frontend (1)
 
   - Creación de un proyecto TS a partir de JS
   - Tests de un servicio
@@ -1284,7 +1271,7 @@ Testing
 
 ### Día 2 (01/03/2025) - M3.00 07
 
-- Test unitario del frontend
+- Test unitario del frontend (2)
 
   - Tests de un componente (continuación)
     - Aspectos estáticos
@@ -1294,7 +1281,7 @@ Testing
 ### Día 3 (02/04/2025) - M3.00 08
 
 - Documentación de código: JSDoc
-- Test unitario del frontend
+- Test unitario del frontend (3)
 
   - Revisión de los tests de un componente (conceptos)
   - Mocking de timers
@@ -1303,28 +1290,49 @@ Testing
 
 ### Día 4 (03/04/2025) - M3.00 09
 
-<!-- - Test unitarios en Angular -->
+- Test unitarios en Angular (1)
+  - Jasmine / Karma
+  - Angular Testing
+    - TesBed: fixture / componentInstance
+  - Configuración de Karma y Jasmine
+  - Test de un componente
+    - Aspectos estáticos
+    - Caja negra (comportamiento) v. caja blanca (implementación)
+  - Mock de servicios: spyOn
 
 ### Día 5 (04/04/2025) - M3.00 10
 
-<!-- - Test unitarios en Angular -->
+- Test unitarios en Angular (2)
+  - Test de un componente (continuación)
+  - Mock de servicios: mocks en el providers: [{provide: Service, useValue: mockService}]
+    - Formas de acceder a los mocks (component, mockName, TestBed.inject())
+  - Mock del servicio HttpClient
 
 ## Semana 21 (Abril)
 
 ### Día 1 (07/04/2025) - M3.00 11
 
+<!-- - Test unitarios en Angular (3)
+
+  - Mock del servicio HttpClient
+  - Test de un componente (continuación)
+    - Interacciones: Evento click
+    - Test de formularios -->
+
+### Día 2 (08/04/2025) - M3.00 12
+
 <!-- Test e2e del frontend
 
 - Cypress. Instalación y configuración -->
 
-### Día 2 (08/04/2025) - M3.00 12
+### Día 3 (09/04/2025) - M3.00 13
+
+<!-- Git y GitHub -->
+
+### Día 4 (10/04/2025) - M3.00 14
 
 <!-- Git y GitHub -->
 <!-- Husky -->
-
-### Día 3 (09/04/2025) - M3.00 13
-
-### Día 4 (10/04/2025) - M3.00 14
 
 ### Día 5 (11/04/2025) - M3.00 15
 
@@ -1337,6 +1345,17 @@ Testing
 ## Semana 22 (Abril)
 
 ### Día 1 (21/04/2025) - M3.00 16
+
+<!--
+Bases de datos NO relacionales (Mongo)
+
+Servidores Web: Node + Express
+- ODM (Mongoose)
+- Patrón Repositorio con ODM
+-->
+<!-- - Autenticación: JWT
+- Uso de la autenticación desde el cliente
+-->
 
 ### Día 2 (22/04/2025) - M3.00 17
 
