@@ -9,7 +9,7 @@ type UserLogin = {
   password: string;
 };
 
-type UserLogged = {
+export type UserLogged = {
   email: string;
   iat: number;
   id: string;
