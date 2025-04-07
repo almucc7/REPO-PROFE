@@ -26,7 +26,7 @@ export default class FilmDetailComponent implements OnInit {
   //activeRoute = inject(ActivatedRoute);
   // @Input() id!: string;
   id = input('id');
-  stateService = inject(StateService);
+  private stateService = inject(StateService);
   film$: Observable<Film[]> = of([]);
 
   //constructor() {

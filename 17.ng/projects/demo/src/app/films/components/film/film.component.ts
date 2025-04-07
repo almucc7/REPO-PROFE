@@ -39,7 +39,7 @@ import { RouterModule } from '@angular/router';
 export class FilmComponent {
   film = input.required<Film>();
   isEditing = false;
-  filmsState = inject(StateService);
+  private filmsState = inject(StateService);
   userService = inject(UserService);
 
   sendDelete() {
