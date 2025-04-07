@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { UserService } from './user/services/user.service';
-import { HttpClientModule } from '@angular/common/http';
+
+const mockUserService: UserService = jasmine.createSpyObj('UserService', [
+  'getToken',
+]);
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -9,8 +12,13 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, HttpClientModule],
-      providers: [UserService],
+      imports: [AppComponent],
+      providers: [
+        {
+          provide: UserService,
+          useValue: mockUserService,
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);

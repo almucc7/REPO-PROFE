@@ -29,7 +29,7 @@ import { TitleCasePipe } from '@angular/common';
   `,
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  userService = inject(UserService);
+  private userService = inject(UserService);
   title: Signal<string>;
   constructor() {
     this.title = computed(
