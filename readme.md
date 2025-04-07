@@ -1312,10 +1312,11 @@ Testing
 
 ### Día 1 (07/04/2025) - M3.00 11
 
-<!-- - Test unitarios en Angular (3)
+- Test unitarios en Angular (3)
 
   - Mock del servicio HttpClient
-  - Test de un componente (continuación)
+
+<!--  - Test de un componente (continuación)
     - Interacciones: Evento click
     - Test de formularios -->
 
