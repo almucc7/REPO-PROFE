@@ -4,10 +4,11 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "cross-env NODE_ENV=prod node dist/index.js",
+        "start": "cross-env NODE_ENV=prod --env-file=.env node dist/index.js",
         "start:dev": "cross-env NODE_ENV=dev DEBUG=movies* node --watch --env-file=.env ./dist/index.js",
         "config": "cross-env NODE_ENV=dev DEBUG=movies* node --env-file=.env ./dist/config.js",
-        "build": "tsc -w",
+        "build": "tsc",
+        "build:dev": "tsc -w",
         "test": "vitest run",
         "test:c": "vitest run --coverage",
         "lint": "eslint . --ext .ts"
