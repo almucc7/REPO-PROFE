@@ -61,7 +61,6 @@ export class UserService {
 
   getToken() {
     this._token.set(localStorage.getItem('token'));
-
     const token = this._token();
     if (token) {
       this._currentUser.set(jwtDecode(token));

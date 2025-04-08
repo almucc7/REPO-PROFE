@@ -25,7 +25,7 @@ type UserForm = {
       <form [formGroup]="formGroup" (submit)="onSubmit()">
         <label>
           <span>Nombre</span>
-          <input type="text" formControlName="firstName" />
+          <input type="text" name="firstName" formControlName="firstName" />
         </label>
         @if (
           formGroup.get('firstName')?.touched &&
@@ -35,7 +35,7 @@ type UserForm = {
         }
         <label>
           <span>Apellido</span>
-          <input type="text" formControlName="lastName" />
+          <input type="text" name="lastName" formControlName="lastName" />
         </label>
         @if (
           formGroup.get('lastName')?.touched &&
@@ -45,7 +45,7 @@ type UserForm = {
         }
         <label>
           <span>Email</span>
-          <input type="email" id="email" formControlName="email" />
+          <input type="email" name="email" formControlName="email" />
         </label>
 
         @if (
@@ -62,12 +62,17 @@ type UserForm = {
 
         <label>
           <span>Avatar</span>
-          <input type="file" #avatar (change)="onChangeAvatar()" />
+          <input
+            type="file"
+            #avatar
+            name="avatar"
+            (change)="onChangeAvatar()"
+          />
         </label>
 
         <label>
           <span>Contraseña</span>
-          <input type="password" formControlName="password" />
+          <input type="password" name="password" formControlName="password" />
         </label>
 
         @if (

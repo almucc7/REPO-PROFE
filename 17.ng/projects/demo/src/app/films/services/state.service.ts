@@ -7,9 +7,9 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class StateService {
-  private _films = signal<Film[]>([]);
+  _films = signal<Film[]>([]);
   private films = computed(() => this._films());
-  repo = inject(RepoService);
+  private repo = inject(RepoService);
   constructor() {
     this.repo.loadFilms().subscribe((films) => {
       this._films.set(films);
