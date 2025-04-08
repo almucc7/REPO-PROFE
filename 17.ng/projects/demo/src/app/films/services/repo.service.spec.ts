@@ -7,8 +7,9 @@ import {
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { Film } from '../../core/types/film';
+import { environment } from '../../../environments/environment';
 
-const urlBase = 'http://localhost:3000';
+const urlBase = environment.urlServer;
 const urlAPI = '/api/films';
 const url = urlBase + urlAPI;
 
