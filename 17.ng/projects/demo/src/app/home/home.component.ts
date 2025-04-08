@@ -8,7 +8,7 @@ import { TimeService } from '../core/services/time.service';
   imports: [RegisterComponent, LoginComponent],
   providers: [TimeService],
   template: `
-    <h1>Home</h1>
+    <h2>Home</h2>
     <p>Esta es la página de inicio</p>
     @if (!showRegister) {
       <cas-login></cas-login>
