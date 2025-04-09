@@ -1315,16 +1315,15 @@ Testing
 - Test unitarios en Angular (3)
 
   - Mock del servicio HttpClient
-
-<!--  - Test de un componente (continuación)
+  - Mocks de servicios: jasmine.createSpyObj()
+  - Test de un componente (continuación)
     - Interacciones: Evento click
-    - Test de formularios -->
+    - Test de formularios
 
 ### Día 2 (08/04/2025) - M3.00 12
 
-<!-- Test e2e del frontend
-
-- Cypress. Instalación y configuración -->
+- Test e2e del frontend
+  - Cypress. Instalación y configuración
 
 ### Día 3 (09/04/2025) - M3.00 13
 

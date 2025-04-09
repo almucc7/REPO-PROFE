@@ -59,10 +59,13 @@ describe('RegisterComponent', () => {
     ) as HTMLInputElement;
     passwordInput.value = '12345678';
     passwordInput.dispatchEvent(new Event('input'));
+
+    // Simulate file input change event//
     const fileInput = form.elements.namedItem('avatar') as HTMLInputElement;
-    //const file = new File([''], 'avatar.png', { type: 'image/png' });
-    fileInput.files = null;
-    //  ?.item(0) = file; //as unknown as FileList;
+    const file = new File([''], 'avatar.png', { type: 'image/png' });
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(file);
+    fileInput.files = dataTransfer.files;
     fileInput.dispatchEvent(new Event('change'));
     fixture.detectChanges();
     expect(component.formGroup.valid).toBe(true);
@@ -77,7 +80,7 @@ describe('RegisterComponent', () => {
     expect(mockUserService.register).toHaveBeenCalled();
   });
 
-  it('should be ...', () => {
+  it('should be manage service errors', () => {
     spyOn(console, 'error');
     (mockUserService.register as jasmine.Spy).and.callFake(() => {
       return throwError(() => new Error('Error'));

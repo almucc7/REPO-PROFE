@@ -7,8 +7,9 @@ import {
 } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { User } from '../../core/types/user';
+import { environment } from '../../../environments/environment';
 
-const urlBase = 'http://localhost:3000';
+const urlBase = environment.urlServer;
 const urlAPI = '/api/users';
 const url = new URL(urlAPI, urlBase);
 
@@ -20,7 +21,6 @@ const mockUser: User = {
   // password: 'password',
 } as User;
 
-// urlBase + '/api/users';
 /*
 
 Preparación del entorno de pruebas para un servicio que depende de HttpClient.

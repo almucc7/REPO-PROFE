@@ -3,6 +3,7 @@ import { Film } from '../../core/types/film';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { UserService } from '../../user/services/user.service';
+import { environment } from '../../../environments/environment';
 
 type ApiResponse = {
   results: Film[];
@@ -13,7 +14,7 @@ type ApiResponse = {
   providedIn: 'root',
 })
 export class RepoService {
-  url = 'http://localhost:3000/api/films';
+  url = environment.urlServer + '/api/films';
   httpClient = inject(HttpClient);
   userService = inject(UserService);
 
@@ -73,7 +74,7 @@ export class RepoService {
 }
 
 // export class RepoServiceFetch {
-//   url = 'http://localhost:3000/api/films';
+//    url = environment.urlServer + '/api/films';
 
 //   async loadFilms(): Promise<Film[]> {
 //     const response = await fetch(this.url);

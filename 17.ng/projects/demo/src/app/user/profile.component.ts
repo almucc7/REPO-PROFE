@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { User } from '../core/types/user';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'cas-profile',
@@ -15,10 +16,7 @@ import { User } from '../core/types/user';
     <pre>{{ userService.currentUser() | json }}</pre>
     <pre>{{ user | json }}</pre>
 
-    <img
-      [src]="'http://localhost:3000/uploads/' + user?.avatar"
-      alt="user image"
-    />
+    <img [src]="urlUploads + user?.avatar" alt="user image" />
   `,
   styles: ``,
 })
@@ -26,6 +24,7 @@ export default class ProfileComponent {
   userService = inject(UserService);
   router = inject(Router);
   user$: Observable<User>;
+  urlUploads = environment.urlServer + '/uploads/';
 
   constructor() {
     if (!this.userService.currentUser()) {

@@ -3,6 +3,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { map } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { DTOUser, User } from '../../core/types/user';
+import { environment } from '../../../environments/environment';
 
 type UserLogin = {
   email: string;
@@ -30,7 +31,7 @@ type ApiResponse = {
   providedIn: 'root',
 })
 export class UserService {
-  private url = 'http://localhost:3000/api/users';
+  private url = environment.urlServer + '/api/users';
   private httpClient = inject(HttpClient);
   private _token = signal<string | null>(null);
   private _currentUser = signal<UserLogged | null>(null);
