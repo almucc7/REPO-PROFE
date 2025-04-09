@@ -1322,8 +1322,12 @@ Testing
 
 ### Día 2 (08/04/2025) - M3.00 12
 
+- Entornos: desarrollo y producción (y testing)
+- Procesos de construcción y despliegue
+- Environments en Angular
 - Test e2e del frontend
-  - Cypress. Instalación y configuración
+  - Cypress. Instalación y configuración en Angular
+  - Ejemplos de uso
 
 ### Día 3 (09/04/2025) - M3.00 13
 
