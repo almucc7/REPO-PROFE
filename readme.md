@@ -1331,7 +1331,17 @@ Testing
 
 ### Día 3 (09/04/2025) - M3.00 13
 
-<!-- Git y GitHub -->
+- Git y GitHub
+
+  - Revisión de los conceptos conocidos
+    - Etiquetas: Git reset y git checkout
+    - Ramas: procesos de merge
+    - Remotos: github
+  - Git internals
+    - Objetos: blob, tree y commit
+    - plumbing commands: creación de hashes
+    - Relación entre elementos
+    - estructura interna de la carpeta .git
 
 ### Día 4 (10/04/2025) - M3.00 14
 

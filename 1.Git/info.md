@@ -2377,7 +2377,6 @@ La principal utilidad de cherry-pick es la de añadir a una o varias ramas un ho
 
 El hotfix debe ser un commit atómico, es decir, que no dependa de otros commits. Esto sería una buena práctica en cualquier caso, pero en el caso de un hotfix es imprescindible.
 
-
 #### Tags
 
 Los tags son referencias a un commit específico. Se utilizan para marcar versiones, releases, etc. Son otra forma de referenciar un commit, como una rama pero hay una diferencia entre ambas:
@@ -2451,7 +2450,7 @@ Para aplicar un patch se utiliza el comando `git apply`
 git apply 0001-Add-new-feature.patch
 ```
 
-### REPOSITORIOS REMOTOS (2) 
+### REPOSITORIOS REMOTOS (2)
 
 #### Workflows
 
