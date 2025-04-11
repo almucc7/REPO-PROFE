@@ -1345,11 +1345,23 @@ Testing
 
 ### Día 4 (10/04/2025) - M3.00 14
 
-<!-- Git y GitHub -->
-<!-- Husky -->
+- Git y GitHub
+  - Git internals
+  - Comandos Git
+    - git rebase
+    - git commit --amend
+    - rebase interactivo
+    - git cherry-pick
+    - git stash
+  - Flujos de trabajo
+    - Git Flow
+    - GitLab Flow
+    - GitHub Flow / Feature Branch / Trunk Based Development
+    - Ship-show-ask
 
 ### Día 5 (11/04/2025) - M3.00 15
 
+<!-- Husky -->
 <!-- CD/CD: Github Actions -->
 
 ## Semana Santa 12/04/2025 - 20/04/2025

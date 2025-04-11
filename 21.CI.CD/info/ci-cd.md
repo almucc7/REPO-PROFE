@@ -211,7 +211,7 @@ npm run post-merge
 
 En el ejemplo del pre-push, al comprueba que el nombre de la rama cumpla con un patrón específico, indirectamente estamos protegiendo la rama `main` o `master` de cambios directos, ya que el nombre de la rama no cumplirá con el patrón. Los cambios en estas rama quedarían restringidos al uso de **pull requests (PR)**, que permiten revisar los cambios antes de integrarlos en la rama principal.
 
-Sin embargo tenemos que tener en cuenta que los hooks de Git son scripts que se ejecutan en el equipo de cada desarrollador, por lo que pueden ser modificados por los desarrolladores o deshabilitados añadiendo a la ejecución de los comandos de git el modificador `--no-verify`.
+Sin embargo tenemos que tener en cuenta que los hooks de Git son scripts que se ejecutan en el equipo de cada desarrollador, por lo que pueden ser modificados por los desarrolladores o deshabilitados añadiendo a la ejecución de los comandos de git el modificador `--no-verify` o `-n`.
 
 Además, nada garantiza que los hooks de Git se compartan en todos los miembros del equipo. Por todo ello, Husky no es una solución definitiva para garantizar la calidad del código. Para ello, es necesario implementar un sistema de integración continua y entrega continua a nivel del servidor de integración continua.
 
