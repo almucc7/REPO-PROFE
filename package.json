@@ -5,12 +5,16 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Warning: No test specified\" && exit 0",
+        "prepare": "husky"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "prettier": {
         "singleQuote": true
+    },
+    "devDependencies": {
+        "husky": "^9.1.7"
     }
 }
